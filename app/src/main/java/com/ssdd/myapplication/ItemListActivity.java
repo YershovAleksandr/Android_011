@@ -1,6 +1,6 @@
 package com.ssdd.myapplication;
 
-import android.app.FragmentTransaction;
+import android.support.v4.app.FragmentTransaction;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -86,7 +86,7 @@ public class ItemListActivity extends AppCompatActivity {
                     arguments.putString(ItemDetailFragment.ARG_ITEM_ID, item.id);
                     ItemDetailFragment fragment = new ItemDetailFragment();
                     fragment.setArguments(arguments);
-                    android.support.v4.app.FragmentTransaction tr = mParentActivity.getSupportFragmentManager().beginTransaction();
+                    FragmentTransaction tr = mParentActivity.getSupportFragmentManager().beginTransaction();
 
                             tr.replace(R.id.item_detail_container, fragment);
                             tr.addToBackStack(null);
