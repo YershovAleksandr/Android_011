@@ -1,5 +1,6 @@
 package com.ssdd.myapplication;
 
+import android.app.FragmentTransaction;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -85,9 +86,11 @@ public class ItemListActivity extends AppCompatActivity {
                     arguments.putString(ItemDetailFragment.ARG_ITEM_ID, item.id);
                     ItemDetailFragment fragment = new ItemDetailFragment();
                     fragment.setArguments(arguments);
-                    mParentActivity.getSupportFragmentManager().beginTransaction()
-                            .replace(R.id.item_detail_container, fragment)
-                            .commit();
+                    android.support.v4.app.FragmentTransaction tr = mParentActivity.getSupportFragmentManager().beginTransaction();
+
+                            tr.replace(R.id.item_detail_container, fragment);
+                            tr.addToBackStack(null);
+                            tr.commit();
                 } else {
                     Context context = view.getContext();
                     Intent intent = new Intent(context, ItemDetailActivity.class);
